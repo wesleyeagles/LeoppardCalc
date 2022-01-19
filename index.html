@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeoppardCalc</title>
+</head>
+
+<style>
+
+    .div2 {
+
+        display: flex;
+        margin-top: 30px;
+        font-size: 22px;
+    }
+
+    input {
+
+        width: 100px;
+        height: 30px;
+        display: block;
+        
+    }
+
+    label {
+
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .container {
+
+        display: inline-block;
+    }
+</style>
+<body>
+
+    <div class="container">
+        
+        <label for=""> Tomadas: <input onkeyup="calc()" id="value" type="number"> </label>
+        <label for=""> Chuveiros: <input onkeyup="calc()" id="value2" type="number"> </label>
+        <label for=""> Ventiladores de Teto: <input onkeyup="calc()" id="value3" type="number"> </label>
+</div>
+
+    <div class="div2">
+    <div id="res"></div>
+</div>
+
+<div class="div2">
+    <div id="resLucro"></div>
+</div>
+
+    <script>
+
+        
+        
+
+        function  calc() {
+            let valueTomada = 45.00;
+            let valueChuveiro = 95.00;
+            let valueVentilador = 100.00;
+            let value2 = document.getElementById("value").value;
+            let value3 = document.getElementById("value2").value;
+            let value4 = document.getElementById("value3").value;
+
+            let result1 = valueTomada *value2;
+            let result2 = valueChuveiro *value3;
+            let result3 = valueVentilador *value4;
+
+
+            
+            let resultTotal = result1 + result2 + result3;
+            res = document.getElementById("res")
+
+            res.innerHTML = "Total: " + resultTotal.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+            let LucroTotal = resultTotal / 10;
+
+            resLucro = document.getElementById("resLucro")
+            resLucro.innerHTML = "Taxa Leoppard: " + LucroTotal.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) + " (Taxa de 10%)";
+        }
+
+
+
+    </script>
+    
+</body>
+</html>
